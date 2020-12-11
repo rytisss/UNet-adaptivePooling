@@ -18,9 +18,9 @@ weights_output_name = 'Adaptive_pool_320x320'
 
 
 def train():
-    number_of_samples = 209632
+    number_of_samples = 500
     # batch size. How many samples you want to feed in one iteration?
-    batch_size = 4
+    batch_size = 8
     tf.keras.backend.clear_session()
     # how many iterations in one epoch? Should cover whole dataset. Divide number of data samples from batch size
     number_of_iteration = number_of_samples / batch_size
@@ -30,7 +30,7 @@ def train():
     model = UNet4_First5x5(number_of_kernels=4,
                            input_size=(320, 320, 1),
                            loss_function=Loss.CROSSENTROPY50DICE50,
-                           learning_rate=1e-3, )
+                           learning_rate=1e-3)
     # tf.keras.utils.plot_model(model, to_file='image.png', show_shapes=True)
     # Where is your data?
     # This path should point to directory with folders 'Images' and 'Labels'
